@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - Fake Console</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+  
+<style>
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900");
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+body {
+  background-color: #111;
+  color: #fff;
+  padding: 20px 40px;
+  font-family: "Source Code Pro";
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.console {
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  max-width: 100%;
+}
+
+.console-label {
+  width: 1em;
+  margin-left: -1em;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/*.console-cursor {
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: #fff;
+  width: .8em;
+  height: 1.2em;
+  animation: blink 1s infinite;
+}*/
+.console-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.console-prompt-box {
+  position: relative;
+  max-width: 100%;
+}
+
+.console-prompt {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+}
+
+.console-capture {
+  position: fixed;
+  margin-left: -200%;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div class='console'>
+  <div class='console-inner'>
+    <textarea class='console-capture'></textarea>
+    <div class='console-prompt-box'><span class='console-label'>
+        >
+      </span><input autofocus class='console-input'>
+    </div>
+  </div>
+</div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      <script id="rendered-js" >
+(function() {
+  var Console;
+
+  Console = class Console {
+    constructor() {
+      // Selectors
+      this.input = $('.console-input');
+      // Variables
+      this.pos = 0;
+      this.prompt_text = '';
+      //     @cursor      = @$cursor.html()
+
+      // init
+      this.init();
+    }
+
+    init() {
+      return this._focus();
+    }
+
+    _focus() {
+      return this.input.focus();
+    }
+
+  };
+
+  $(function() {
+    return window.Console = new Console();
+  });
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiPGFub255bW91cz4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQSxNQUFBOztFQUFNLFVBQU4sTUFBQSxRQUFBO0lBRUUsV0FBYSxDQUFBLENBQUEsRUFBQTs7TUFFWCxJQUFDLENBQUEsS0FBRCxHQUFTLENBQUEsQ0FBRSxnQkFBRixFQURiOztNQUlJLElBQUMsQ0FBQSxHQUFELEdBQWU7TUFDZixJQUFDLENBQUEsV0FBRCxHQUFlLEdBTG5COzs7O01BU0ksSUFBQyxDQUFBLElBQUQsQ0FBQTtJQVZXOztJQVliLElBQU0sQ0FBQSxDQUFBO2FBQ0osSUFBQyxDQUFBLE1BQUQsQ0FBQTtJQURJOztJQUdOLE1BQVEsQ0FBQSxDQUFBO2FBQ04sSUFBQyxDQUFBLEtBQUssQ0FBQyxLQUFQLENBQUE7SUFETTs7RUFqQlY7O0VBb0JBLENBQUEsQ0FBRSxRQUFBLENBQUEsQ0FBQTtXQUVBLE1BQU0sQ0FBQyxPQUFQLEdBQWlCLElBQUksT0FBSixDQUFBO0VBRmpCLENBQUY7QUFwQkEiLCJzb3VyY2VzQ29udGVudCI6WyJjbGFzcyBDb25zb2xlXG5cbiAgY29uc3RydWN0b3I6IC0+XG4gICAgIyBTZWxlY3RvcnNcbiAgICBAaW5wdXQgPSAkKCcuY29uc29sZS1pbnB1dCcpXG5cbiAgICAjIFZhcmlhYmxlc1xuICAgIEBwb3MgICAgICAgICA9IDBcbiAgICBAcHJvbXB0X3RleHQgPSAnJ1xuIyAgICAgQGN1cnNvciAgICAgID0gQCRjdXJzb3IuaHRtbCgpXG5cbiAgICAjIGluaXRcbiAgICBAaW5pdCgpXG5cbiAgaW5pdDogLT5cbiAgICBAX2ZvY3VzKClcblxuICBfZm9jdXM6IC0+XG4gICAgQGlucHV0LmZvY3VzKClcblxuJCAtPlxuXG4gIHdpbmRvdy5Db25zb2xlID0gbmV3IENvbnNvbGUiXX0=
+//# sourceURL=coffeescript
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
